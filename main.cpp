@@ -28,7 +28,7 @@ static const std::vector<std::string> keywords = {
 void print_header_line() {
   std::cout << "\"Time\"";
   for (const auto& keyword : keywords) {
-    std::printf("\"%s\"", keyword.c_str());
+    std::printf(",\"%s\"", keyword.c_str());
   }
   std::cout << std::endl;
 }
@@ -106,8 +106,7 @@ int main(int argc, char *argv[]) {
     const auto ms = std::chrono::duration_cast<std::chrono::milliseconds>(now1.time_since_epoch()) % 1000;
     const auto timer = std::chrono::system_clock::to_time_t(now1);
     const auto bt = *std::localtime(&timer);
-    std::cout << "" << std::put_time(&bt, "%FT%T");
-    std::cout << "." << ms.count();
+    std::cout << "\"" << std::put_time(&bt, "%FT%T") << "." << ms.count() << "\"";
 
     pascal::parse_proc_status_file(procFd);
     std::cout << std::endl;
