@@ -7,7 +7,6 @@ set(SOURCES
         GraphWindow.cpp GraphWindow.h
         LoadWidget.cpp LoadWidget.h
         CLIMonitoring.cpp
-        DataPoints.cpp DataPoints.h
         GraphController.cpp GraphController.h
         )
 
