@@ -91,7 +91,7 @@ int foo(int argc, char *argv[]) {
   process_args(argc, argv, &cmd_args);
   auto refresh_interval = std::chrono::milliseconds(cmd_args.refresh_interval_in_ms);
 
-  char path[64];
+  char path[256];
   snprintf(path, sizeof(path), "/proc/%d/status", cmd_args.pid);
   struct stat buffer;
 

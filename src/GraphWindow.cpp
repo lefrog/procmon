@@ -22,14 +22,15 @@ GraphWindow::GraphWindow() {
 void GraphWindow::on_realize() {
   Widget::on_realize();
   std::puts("GraphWindow::on_realize");
-  start_monitoring();
+  start_monitoring_();
 }
 
-void GraphWindow::start_monitoring() {
-  worker_thread_ = new std::thread(&GraphWindow::do_some_work, this);
+void GraphWindow::start_monitoring_() {
+//  worker_thread_ = new std::thread(&GraphWindow::manual_testing_, this);
+  worker_thread_ = new std::thread(&GraphWindow::manual_testing_, this);
 }
 
-void GraphWindow::do_some_work() {
+void GraphWindow::manual_testing_() {
   graph_controller_.add_value(0.0);
   double value;
 
@@ -41,6 +42,11 @@ void GraphWindow::do_some_work() {
     draw_graph_();
   }
 }
+
+void GraphWindow::monitor_process_() {
+
+}
+
 
 void GraphWindow::draw_graph_() {
   auto end = std::chrono::system_clock::now();
