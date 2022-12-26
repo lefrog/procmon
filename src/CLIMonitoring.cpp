@@ -86,7 +86,7 @@ void process_args(int argc, char *argv[], CmdArgs * cmd_args) {
   cmd_args->pid = atoi(argv[optind]);
 }
 
-int main(int argc, char *argv[]) {
+int foo(int argc, char *argv[]) {
   CmdArgs cmd_args;
   process_args(argc, argv, &cmd_args);
   auto refresh_interval = std::chrono::milliseconds(cmd_args.refresh_interval_in_ms);
