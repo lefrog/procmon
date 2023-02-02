@@ -26,7 +26,6 @@ void GraphWindow::on_realize() {
 }
 
 void GraphWindow::start_monitoring_() {
-//  worker_thread_ = new std::thread(&GraphWindow::manual_testing_, this);
   worker_thread_ = new std::thread(&GraphWindow::manual_testing_, this);
 }
 
@@ -34,7 +33,7 @@ void GraphWindow::manual_testing_() {
   graph_controller_.add_value(0.0);
   double value;
 
-  std::printf("Enter a value [%f, %f]:\n", graph_.get_min_value(), graph_.get_max_value());
+  std::printf("Enter a value [%f to %f]:\n", graph_.get_min_value(), graph_.get_max_value());
   while (keep_running_) {
     std::cin >> value;
     std::printf("value: %f\n", value);
