@@ -37,7 +37,7 @@ class GraphWindow : public Gtk::Window {
  private:
   GraphController graph_controller_;
   LoadWidget graph_;
-  std::thread* worker_thread_;
+  std::thread *worker_thread_;
   bool keep_running_ = true;
   /**
    * Process ids to monitor

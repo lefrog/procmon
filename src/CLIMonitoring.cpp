@@ -27,7 +27,7 @@ static const std::vector<std::string> keywords = {
 
 void print_header_line() {
   std::cout << "\"Time\"";
-  for (const auto& keyword : keywords) {
+  for (const auto &keyword : keywords) {
     std::printf(",\"%s\"", keyword.c_str());
   }
   std::cout << std::endl;
@@ -40,7 +40,7 @@ void parse_line(const char *line) {
   int value = 0;
   unsigned long found;
 
-  for (const auto& keyword : keywords) {
+  for (const auto &keyword : keywords) {
     found = str.find(keyword);
     if (found == std::string::npos) {
       continue;
@@ -65,15 +65,13 @@ struct CmdArgs {
   unsigned int refresh_interval_in_ms = 1000;
 };
 
-void process_args(int argc, char *argv[], CmdArgs * cmd_args) {
+void process_args(int argc, char *argv[], CmdArgs *cmd_args) {
   int opt;
   while ((opt = getopt(argc, argv, "r:")) != -1) {
     switch (opt) {
-      case 'r':
-        cmd_args->refresh_interval_in_ms = atoi(optarg);
+      case 'r':cmd_args->refresh_interval_in_ms = atoi(optarg);
         break;
-      default:
-        std::printf("Usage: %s [-r ms] pid\n", argv[0]);
+      default:std::printf("Usage: %s [-r ms] pid\n", argv[0]);
         exit(1);
     }
   }

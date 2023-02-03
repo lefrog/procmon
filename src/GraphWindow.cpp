@@ -46,7 +46,6 @@ void GraphWindow::monitor_process_() {
 
 }
 
-
 void GraphWindow::draw_graph_() {
   auto end = std::chrono::system_clock::now();
   std::vector<TimeSerieData> data;

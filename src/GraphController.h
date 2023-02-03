@@ -40,7 +40,10 @@ class GraphController {
     return graph_max_time_span_;
   }
 
-  void add_value(double value = 0.0, std::chrono::time_point<std::chrono::system_clock> at = std::chrono::system_clock::now());
+  void add_value(
+      double value = 0.0,
+      std::chrono::time_point<std::chrono::system_clock> at = std::chrono::system_clock::now()
+  );
 
   /**
    * The function will search data between (from - graph_max_time_span_) to (from).
@@ -48,7 +51,10 @@ class GraphController {
    * @param result
    * @param from
    */
-  void select_values(std::vector<TimeSerieData>& result, const std::chrono::time_point<std::chrono::system_clock>& from = std::chrono::system_clock::now());
+  void select_values(
+      std::vector<TimeSerieData> &result,
+      const std::chrono::time_point<std::chrono::system_clock> &from = std::chrono::system_clock::now()
+  );
 };
 
 #endif //PROCMON_SRC_GRAPHCONTROLLER_H_
